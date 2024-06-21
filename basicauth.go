@@ -18,11 +18,11 @@ func WithUnsafeHTTP() Option {
 	}
 }
 
-// BasicAuthBuilder is a factory-type function that returns middleware
+// Builder is a factory-type function that returns middleware
 // that middleware function can be handed an http.HandlerFunc and returns one
 // anything that middleware is wrapped around should require and authenticate
 // with constant-time comparison basic auth
-func BasicAuthBuilder(providedCreds map[string]string, opts ...Option) (func(http.HandlerFunc) http.HandlerFunc, error) {
+func Builder(providedCreds map[string]string, opts ...Option) (func(http.HandlerFunc) http.HandlerFunc, error) {
 	conf := &BasicAuthConfig{}
 	for _, o := range opts {
 		o(conf)

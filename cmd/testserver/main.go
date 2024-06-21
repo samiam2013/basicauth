@@ -13,7 +13,7 @@ func main() {
 		w.Write([]byte("secret homepage"))
 	}
 
-	basicAuth, err := basicauth.BasicAuthBuilder(
+	basicAuth, err := basicauth.Builder(
 		map[string]string{"baduser": "badpassword"},
 		basicauth.WithUnsafeHTTP())
 	if err != nil {
