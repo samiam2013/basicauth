@@ -13,7 +13,9 @@ func main() {
 		w.Write([]byte("secret homepage"))
 	}
 
-	basicAuth, err := basicauth.BasicAuthBuilder(map[string]string{"baduser": "badpassword"}, true)
+	basicAuth, err := basicauth.BasicAuthBuilder(
+		map[string]string{"baduser": "badpassword"},
+		basicauth.WithUnsafeHTTP())
 	if err != nil {
 		log.Fatalf("Failed to build basic auth middleware %v", err)
 	}
