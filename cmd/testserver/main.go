@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	log "github.com/sirupsen/logrus"
+	"log"
 
 	"github.com/samiam2013/basicauth"
 )
@@ -23,6 +23,6 @@ func main() {
 	wrapped := basicAuth(indexFunc)
 
 	if err := http.ListenAndServe(":8080", wrapped); err != nil {
-		log.WithError(err).Error("Server was stopped.")
+		log.Printf("Server was stopped: %v", err)
 	}
 }
